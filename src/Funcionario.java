@@ -4,21 +4,29 @@ public class Funcionario {
     String cargo;
     double salarioBase;
     int horasExtras;
+    Departamento departamento; 
+    
 
     //Construtor
-    Funcionario(String nome, String cargo, double salarioBase, int horasExtras) {
+    Funcionario(String nome, String cargo, double salarioBase, int horasExtras, Departamento departamento) {
         this.nome = nome;
         this.cargo = cargo;
         this.salarioBase = salarioBase;
         this.horasExtras = horasExtras;
+        this.departamento = departamento;
     }
-
     //Métodos
     public void exibirDados() {
-        System.out.println("\nNome: " + this.nome );
+        System.out.println("\nNome: " + this.nome);
         System.out.println("Cargo: " + this.cargo);
         System.out.println("Salario: " + this.salarioBase);
         System.out.println("Horas Extras: " + this.horasExtras);
+        if (departamento != null) {
+            System.out.println("Departamento:");
+            departamento.exibirInfo(); // Exibe informações do departamento
+        } else {
+            System.out.println("Departamento: Não atribuído");
+        }
     }
 
     public double calcularSalario() {
